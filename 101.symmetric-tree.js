@@ -36,6 +36,25 @@
 //   );
 // };
 
-// Method 2: Iterative - BFS
-
+// Method 2: Iteration - BFS
+// Instead of recursion, we can also use iteration with the aid of a queue. Each two consecutive nodes in the queue should be equal, and their subtrees a mirror of each other. Initially, the queue contains root and root. Then the algorithm works similarly to BFS, with some key differences. Each time, two nodes are extracted and their values compared. Then, the right and left children of the two nodes are inserted in the queue in opposite order. The algorithm is done when either the queue is empty, or we detect that the tree is not symmetric (i.e. we pull out two consecutive nodes from the queue that are unequal).
+// Time Complexity: O(n) - Because we traverse the entire input tree once, the total run time is O(n), where n is the total number of nodes in the tree.
+// Space Complexity: O(n) - There is additional space required for the search queue. In the worst case, we have to insert O(n) nodes in the queue. Therefore, the space complexity is O(n)
+var isSymmetric = function (root) {
+  let q = [];
+  q.push(root);
+  q.push(root);
+  while (q.length !== 0) {
+    let t1 = q.shift();
+    let t2 = q.shift();
+    if (t1 === null && t2 === null) continue;
+    if (t1 === null || t2 === null) return false;
+    if (t1.val !== t2.val) return false;
+    q.push(t1.left);
+    q.push(t2.right);
+    q.push(t1.right);
+    q.push(t2.left);
+  }
+  return true;
+};
 // @lc code=end
