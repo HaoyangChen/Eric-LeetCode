@@ -17,8 +17,29 @@
  * @param {TreeNode} root
  * @return {number[]}
  */
-var findMode = function(root) {
-    
+var findMode = function (root) {
+  let pre = null;
+  let currentTime = 1;
+  let maxTime = 0;
+  let res = [];
+  const inorder = (root) => {
+    if (!root) return;
+    inorder(root.left);
+    if (pre) {
+      currentTime = root.val === pre.val ? currentTime + 1 : 1;
+    }
+    if (currentTime === maxTime) {
+      res.push(root.val);
+    } else if (currentTime > maxTime) {
+      res.splice(0, res.length);
+      res.push(root.val);
+      maxTime = currentTime;
+    }
+    pre = root;
+    inorder(root.right);
+  };
+  if (!root) return res;
+  inorder(root);
+  return res;
 };
 // @lc code=end
-
