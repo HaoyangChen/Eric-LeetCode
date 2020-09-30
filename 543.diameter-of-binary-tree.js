@@ -17,6 +17,9 @@
  * @param {TreeNode} root
  * @return {number}
  */
+
+// Time Complexity: O(N) - We visit every node once
+// Space Complexity: O(N) - The size of our implicit call stack during the depth-first-search
 var diameterOfBinaryTree = function (root) {
   let ans = 1;
 
