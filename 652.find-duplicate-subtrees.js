@@ -17,6 +17,9 @@
  * @param {TreeNode} root
  * @return {TreeNode[]}
  */
+
+// Time Complexity O(N^2), where N is the number of nodes in the tree. We visit each node once, but each creation of serial may take O(N) work
+// Space Complexity: O(N^2) the size of count
 var findDuplicateSubtrees = function (root) {
   let count = new Map();
   let ans = [];
