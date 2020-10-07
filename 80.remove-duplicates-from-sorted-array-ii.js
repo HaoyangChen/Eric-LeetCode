@@ -45,7 +45,7 @@
 
 // Method 2: Two pointers
 // Time Complexity: O(N) - We traverse the array once
-// Space Complexity: O(1)
+// Space Complexity: O(1) - we modify the array in place
 var removeDuplicates = function (nums) {
   let j = 1,
     count = 1;
