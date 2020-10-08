@@ -16,7 +16,7 @@
 // If it is either monotone increasing or monotone decreasing, then A is monotonic.
 
 // Time Complexity: O(N) - where N is the length of the given array A
-// Space Complexity: O(1)
+// Space Complexity: O(1) - constant space is used
 var isMonotonic = function (A) {
   let increasing = true;
   let decreasing = true;
