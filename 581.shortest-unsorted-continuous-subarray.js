@@ -9,6 +9,9 @@
  * @param {number[]} nums
  * @return {number}
  */
+
+// Time Complexity: O(n^2) - Two nested loops
+// Space Complexity: O(1) - Constant space is used
 var findUnsortedSubarray = function (nums) {
   let l = nums.length,
     r = 0;
